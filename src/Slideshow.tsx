@@ -1,4 +1,3 @@
-import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
@@ -19,8 +18,8 @@ const slideImages = [
 
 const Image = (props: { imageUrl: string }) => {
   return (
-    <div className="each-slide">
-      <img src={props.imageUrl} alt="slide"></img>
+    <div className="each-slide" style={{ margin: "50px" }}>
+      <div>{props.imageUrl}</div>
     </div>
   );
 };
@@ -28,7 +27,7 @@ const Image = (props: { imageUrl: string }) => {
 const Slideshow = () => {
   return (
     <div className="slide-container">
-      <Slide>
+      <Slide infinite={false}>
         {slideImages.map((slideImage, index) => (
           <Image key={index} imageUrl={slideImage.url} />
         ))}
